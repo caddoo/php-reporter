@@ -196,7 +196,9 @@ class PHPUnit implements TestListener
             $data = $test->getProvidedData();
             if ($data) {
                 $values = $data;
-                $keys = array_map(fn ($i) => "p$i", array_keys($values));
+                $keys = array_map(function ($i) {
+                    return "p$i";
+                }, array_keys($values));
 
                 $body['example'] = array_combine($keys, $values);
             }
